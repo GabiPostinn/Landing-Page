@@ -7,11 +7,12 @@
     <title>Landing Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="index.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div class="all-site">
-      <section class="all">
+      <section class="all fade-in-on-scroll">
         <nav class="navbar">
           <div class="navbar-container row row-center">
             <div class="nav-left row row-center">
@@ -20,14 +21,15 @@
             </div>
             <div class="nav-right">
               <ul>
-                <li><a href="#">Product</a></li>
-                <li><a href="#">Customers</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Resources</a></li>
+                <li><a class="nav-but" href="#">Product</a></li>
+                <li><a class="nav-but" href="#">Customers</a></li>
+                <li><a class="nav-but" href="#">Pricing</a></li>
+                <li><a class="nav-but" href="#">Resources</a></li>
               </ul>
               <div class="nav-buttons row row-center">
                 <button class="primary-button button-outlined" type="submit">Sign In</button>
                 <button class="primary-button nav-buton" type="submit">Sign Up</button>
+                <a><img id="toggle-dark" class="dark-img" src="images/Frame 49.png" /></a>
               </div>
             </div>
             <img class="nav-menu-icon" src="images/menu.png" />
@@ -35,7 +37,7 @@
         </nav>
       </section>
 
-      <section class="first-section row row-center">
+      <section class="first-section row row-center fade-in-on-scroll">
         <div class="text-first-section">
           <h1>
             Work at the speed
@@ -57,7 +59,7 @@
         </div>
       </section>
 
-      <section class="two-section" id="section-bg">
+      <section class="two-section scroll fade-in-on-scroll" id="section-bg">
         <h2 style="text-align: center" class="row row-center">
           Product was Built Specifically <br />
           for You
@@ -99,7 +101,7 @@
         </div>
       </section>
 
-      <section class="management">
+      <section class="management fade-in-on-scroll">
         <div class="management-content row">
           <div class="management-text">
             <h4>Effortless Validation for</h4>
@@ -126,7 +128,7 @@
         </div>
       </section>
 
-      <section class="customer row row-center">
+      <section class="customer row row-center fade-in-on-scroll">
         <div class="customer-img">
           <img src="images/third-section-image.png" />
         </div>
@@ -170,7 +172,7 @@
         </div>
       </section>
 
-      <section class="collaborative row row-center">
+      <section class="collaborative row row-center fade-in-on-scroll">
         <div class="collaborative-text">
           <div class="top">
             <h4>Optimisation for</h4>
@@ -197,7 +199,7 @@
         </div>
       </section>
 
-      <section class="avatars" id="section-bg-rev">
+      <section class="avatars fade-in-on-scroll" id="section-bg-rev">
         <div class="avatars-all">
           <div class="avatars-text">
             <h1>Quick & Easy Process</h1>
@@ -234,7 +236,7 @@
         </div>
       </section>
 
-      <section class="strategy column">
+      <section class="strategy column fade-in-on-scroll">
         <div class="strategy-all column column-center">
           <div class="strategy-text">
             <h1>Contents Strategies</h1>
@@ -278,7 +280,7 @@
         </div>
       </section>
 
-      <section class="price">
+      <section class="price fade-in-on-scroll">
         <div class="price-text column column-center">
           <h1>Price Table</h1>
           <p>We offer competivice price</p>
@@ -333,7 +335,7 @@
         </div>
       </section>
 
-      <section class="review">
+      <section class="review fade-in-on-scroll">
         <div class="review-text column column-center">
           <h1 style="color: #22343d">What Clients Say</h1>
           <p style="color: #22343d; text-align: center; margin-top: 18px">
@@ -403,7 +405,7 @@
         </div>
       </section>
 
-      <section class="promotion row row-center">
+      <section class="promotion row row-center fade-in-on-scroll">
         <div class="promotion-text">
           <h1>
             Join 100 Compannies who<br />
@@ -417,7 +419,7 @@
         </div>
       </section>
 
-      <section class="end">
+      <section class="all-end fade-in-on-scroll" id="all-end">
         <div class="all-end row">
           <div class="first-end">
             <div class="logo-end row">
@@ -458,5 +460,22 @@
         <p class="row row-center" style="margin: 15px 0 35px">Made With Love By Gabi Postin. All Right Reserved</p>
       </section>
     </div>
+    <script>
+      function handleScrollAnimation() {
+        document.querySelectorAll(".fade-in-on-scroll").forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          if (rect.top < windowHeight - 100 && rect.bottom > 100) {
+            el.classList.add("visible"); // apare când intră
+          } else {
+            el.classList.remove("visible"); // dispare când iese
+          }
+        });
+      }
+
+      window.addEventListener("scroll", handleScrollAnimation);
+      window.addEventListener("DOMContentLoaded", handleScrollAnimation); // pentru când pagina se încarcă
+    </script>
   </body>
 </html>
